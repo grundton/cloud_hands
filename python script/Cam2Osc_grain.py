@@ -9,7 +9,7 @@ import argparse
 
 # arg parse
 parser = argparse.ArgumentParser()
-parser.add_argument("-sf", "--scaling_factor", type=float, help="Scale down size of window. Affects processing and video output. Range 1-10.", default = 1, choices = range(1, 10))
+parser.add_argument("-sf", "--scaling_factor", type=float, help="Scale down size of window. Affects processing and video output. Range 1-10.", default = 1, choices = range(1, 11))
 parser.add_argument("-off", "--screen_off", action = "store_false", help="Disable viewing video output by disabling cv2.imshow().")
 parser.add_argument("-c", "--color", nargs = "+", type = int, help="Choose color in BGR format (B, G, R).", default = (20, 255, 20))
 parser.add_argument("-t", "--timer", action = "store_true", help="Print inter-frame time.")
