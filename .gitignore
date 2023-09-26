@@ -1,2 +1,4 @@
 #ignore all samples
 *.wav
+*.mp3
+*.aiff
