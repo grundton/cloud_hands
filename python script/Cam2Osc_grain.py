@@ -9,16 +9,18 @@ import argparse
 
 # arg parse
 parser = argparse.ArgumentParser()
-parser.add_argument("-sf", "--scaling_factor", type=float, help="Scale down size of window. Affects processing and video output.", default = 1)
-parser.add_argument("-sc", "--screen_on", type=bool, help="Enable viewing video output by enabling cv2.imshow().", default = True)
-parser.add_argument("-c", "--color", type = tuple, help="Choose color in RGB format (R, G, B).", default = (20, 255, 20))
-parser.add_argument("-t", "--timer", type=bool, help="Print inter-frame time.", default = False)
-parser.add_argument("-dk", "--dark", type=bool, help="Turn video feed black after processing.", default = False)
+parser.add_argument("-sf", "--scaling_factor", type=float, help="Scale down size of window. Affects processing and video output. Range 1-10.", default = 1, choices = range(1, 10))
+parser.add_argument("-off", "--screen_off", action = "store_false", help="Disable viewing video output by disabling cv2.imshow().")
+parser.add_argument("-c", "--color", nargs = "+", type = int, help="Choose color in BGR format (B, G, R).", default = (20, 255, 20))
+parser.add_argument("-t", "--timer", action = "store_true", help="Print inter-frame time.")
+parser.add_argument("-dk", "--dark", action = "store_true", help="Turn video feed black after processing.")
 parser.add_argument("-vd", "--video_capture", type=float, help="Float representing camera device connected to machine. 0 probably built in camera.", default = 0)
 args = vars(parser.parse_args())
+print(args)
+
 scaling_factor = args["scaling_factor"]
-screen_on = args["screen_on"]
-color = args["color"]
+screen_on = args["screen_off"]
+color = tuple(args["color"])
 timer = args["timer"]
 dark = args["dark"]
 video_capture = args["video_capture"]
@@ -32,7 +34,7 @@ except NameError:
     color = (20, 255, 20)    
 
 if len(color) != 3:
-    print("Please use (R, G, B) format. Continue using default value :(20, 255, 20)")
+    print("Please use (B, G, R) format. Continue using default value :(20, 255, 20)")
     color = (20, 255, 20) 
 
 #Get time at start
