@@ -2,6 +2,13 @@
 Cloud Hands is granular synthesizer instrument/installation using machine vision.
 A python script making use of the [MediaPipe](https://developers.google.com/mediapipe) library estimates hand landmarks from live video input which are then used as parameters for a granular synthesis engine written in Pure Data.
 
+# Requirements
+For this project a working version of [Pure Data](https://puredata.info/downloads) is required. I recommend getting the "vanilla" distribution.
+
+The installation instructions require you to have a working version of [conda](https://docs.conda.io/en/latest/) (a virtual environment manager) and [pip](https://packaging.python.org/en/latest/guides/tool-recommendations/) (a python package installer).
+
+To check whether you have these installed, please try 
+`conda --version` and `python3 -m pip --version` in your terminal.
 
 # Installation 
 Download the zip file or clone the repository
@@ -14,6 +21,9 @@ To install the required libraries for cloud hands, simply open a terminal at the
 ```
 pip install -r requirements.txt
 ```
+
+If you receive an error with the `pip install -r requirements.txt` command, please check the [Known Bug Section](#Known-bugs).
+
 # Getting started
 Find some .wav or .aiff files you want to use and put them inside the samples folder.
 
@@ -90,6 +100,9 @@ This one will turn every drawn line and text blue:
 python python_script/Cam2Osc_grain.py -c 255 0 0 
 ```
 
+# Known bugs
 
+## pip install errors
+Sometimes the `pip install -r requirements.txt` command will throw an error, something along the lines of 'Mediapipe Version 0.10.5 not available'. It might even tell you available alternative versions. In this case go to the `requirements.txt` file and change the version to the closest one and try again. 
 
 
