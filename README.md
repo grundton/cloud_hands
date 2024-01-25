@@ -17,6 +17,10 @@ Before installing any dependencies, I recommend using a seperate virtual environ
 ```
 conda create -n cloudhands python=3.9
 ```
+Now activate the new environment
+```
+conda activate cloudhands
+```
 To install the required libraries for cloud hands, simply open a terminal at the root directory and execute
 ```
 pip install -r requirements.txt
